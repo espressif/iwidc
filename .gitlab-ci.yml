@@ -1,0 +1,13 @@
+stages:
+  - test
+
+test:
+  image: python:3.9-slim-buster
+  stage: test
+  tags:
+    - internet
+    - amd64
+    - build
+  script:
+    - python -m pip install -r requirements.txt
+    - python -m unittest discover -v test "*test*.py"

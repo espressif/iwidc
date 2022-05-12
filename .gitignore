@@ -1,0 +1,10 @@
+esp-iwidc
+*.pyc
+*.bin
+*.log
+bins/
+certs/
+__pycache__
+build
+dist
+venv
