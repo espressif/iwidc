@@ -37,8 +37,8 @@ jobs:
         with:
           path: .
 
-      - name: Upload Windows executable file
+      - name: Upload Windows executable
         uses: actions/upload-artifact@v1
         with:
-          name: esp-idf-extension.vsix
-          path: esp-idf-extension.vsix
+          name: esp-iwidc
+          path: dist/windows
