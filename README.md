@@ -1,5 +1,5 @@
-[![GitHub release](https://img.shields.io/github/release/espressif/iwidc.svg?style=flat-square)](https://github.com/espressif/iwidc/releases/latest)
-[![Release workflow](https://img.shields.io/github/workflow/status/espressif/iwidc/Release?label=Release)](https://github.com/espressif/iwidc/actions?workflow=Release)
+[![GitHub release](https://img.shields.io/github/release/espressif/iwidc.svg?style=flat-square&label=Latest%20release)](https://github.com/espressif/iwidc/releases/latest)
+[![Release workflow](https://img.shields.io/github/workflow/status/espressif/iwidc/Release?label=Release%20Status)](https://github.com/espressif/iwidc/actions?workflow=Release)
 
 # ESP IDF Web IDE Desktop Companion (ESP-IWIDC)
 
