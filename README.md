@@ -1,3 +1,6 @@
+[![GitHub release](https://img.shields.io/github/release/espressif/iwidc.svg?style=flat-square)](https://github.com/espressif/iwidc/releases/latest)
+[![Docker workflow](https://img.shields.io/github/workflow/status/espressif/iwidc/Release?label=Release)](https://github.com/espressif/iwidc/actions?workflow=Release)
+
 # ESP IDF Web IDE Desktop Companion
 
 ESP IWI-DC is a remote flasher, monitor and band of tools for the client side application for bridging the web-ide based flash, monitor, debug support
