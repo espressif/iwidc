@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  extension_ci:
+  esp-iwidc:
     runs-on: ubuntu-latest
 
     steps:
