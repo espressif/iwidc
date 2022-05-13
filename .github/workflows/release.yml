@@ -1,0 +1,70 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    name: Upload release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          python -m unittest discover -v test "*test*.py"
+
+      - name: Package Application
+        uses: JackMcKew/pyinstaller-action-windows@main
+        with:
+          path: .
+
+      - name: Create Release
+          id: create_release
+          uses: actions/create-release@v1.0.0
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            tag_name: ${{ github.ref }}
+            release_name: ESP IDF Web IDE Desktop Companion Release ${{ github.ref }}
+            draft: true
+            body: |
+              ### Release Highlights
+
+              ### Features & Enhancements
+
+              <!-- Insert The Features and Enhancements below as points possibly add the link to the PR/commit -->
+
+              ### Bug Fixes
+
+              <!-- Insert The Bug Fixes below as points, also add relevant links -->
+
+        - name: Determine version
+          id: version
+          run: "echo ::set-output name=version::${GITHUB_REF:11}"
+
+        - name: Upload release asset
+          id: upload-release-asset
+          uses: actions/upload-release-asset@v1.0.1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }}
+            asset_path: dist/windows
+            asset_name: esp-iwidc-${{ steps.version.outputs.version }}
+            asset_content_type: application/zip
